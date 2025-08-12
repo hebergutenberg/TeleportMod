@@ -4,10 +4,8 @@ A simple teleport mod for DayZ that can reliably connect locations such as bunke
 
 ## Planned Features
 
-- Teleport delay
-- Fade-in/fade-out transitions
+- Better Fade-in/fade-out transitions
 - Sound/Alarm effects during teleportation
-- Better visible notification
 
 ---
 
