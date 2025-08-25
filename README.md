@@ -1,63 +1,48 @@
-# TeleportMod
+🌀 TeleportMod  
 
-A simple teleport mod for DayZ that can reliably connect locations such as bunkers placed outside the map — or any other custom area. Originally created for use on a private server, the mod includes optional item-based activation and the ability to consume the item upon use (e.g. keycards).
-
-## Planned Features
-
-- Better Fade-in/fade-out transitions
-- Sound/Alarm effects during teleportation
+Um mod de teletransporte simples para **DayZ** que permite conectar locais de forma confiável — como bunkers secretos fora do mapa ou áreas personalizadas! 🗺️⚡ Originalmente criado para servidores privados, o mod inclui ativação por itens, consumo de recursos e muito mais.  
 
 ---
 
-## Features
+## ✨ Funcionalidades  
 
-- Interactive teleport points attachable to any object
-- Item requirements (e.g. crowbar, shovel, keycards)
-- Item damage or consumption system
-- Temporary teleport activation (time-limited use)
-- Sound effects (work in progress – not fully implemented)
+- ✅ **Pontos de teletransporte interativos** vinculados a qualquer objeto  
+- 🔑 **Requisitos de itens** (ex: pé-de-cabra, cartão de acesso, pá)  
+- ⚠️ **Dano ou consumo de itens** ao usar o teleporte  
+- ⏳ **Ativação temporizada** – uso por tempo limitado  
+- 🎵 **Efeitos sonoros** (em desenvolvimento – ainda não totalmente implementado)  
+- 🖥️ **Transições de tela preta** com mensagens personalizadas  
+- 🔄 **Sistema de cooldown** para evitar abuso  
 
 ---
 
-## Example Configuration
+## 🛠️ Exemplo de Configuração
 
 ```json
 {
     "TeleportEntries": [
         {
             "EnableTeleport": 1,
-            "TeleportName": "Teleport 1",
+            "TeleportName": "Entrada do Bunker Secreto",
             "ObjectType": "Land_Door_germa_1",
-            "ObjectCoordinates": [
-                7758.64013671875,
-                16.184600830078126,
-                14116.900390625
-            ],
-            "ObjectOrientation": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "TeleportPosition": [
-                10.2998046875,
-                10.765998840332032,
-                10.27001953125
-            ],
+            "ObjectCoordinates": [7758.64, 16.18, 14116.90],
+            "ObjectOrientation": [0.0, 0.0, 0.0],
+            "TeleportPosition": [10.29, 10.76, 10.27],
             "CheckRadius": 1.0,
             "RequiredItem": "Crowbar",
             "RequiredItemDamagePercent": 50.0,
             "ConsumeRequiredItem": 0,
             "TeleportActiveTimeSeconds": 30,
-            "MissingItemMessage": "You need a Crowbar to open the barn!",
+            "MissingItemMessage": "🚫 Você precisa de um pé de cabra para forçar a porta!",
             "TeleportCooldownTimeSeconds": 60,
-            "CooldownMessage": "The barn door is locked tight. You'll need to wait before forcing it open again.",
+            "CooldownMessage": "🔒 A porta está trancada. Aguarde antes de tentar novamente.",
             "PreLoadRadius": 20.0,
             "TeleportDelaySeconds": 4,
             "IsUndergroundDestination": 1,
             "SafeGroundOffset": 1.5,
             "EnableBlackScreenEffect": 1,
             "BlackScreenDurationSeconds": 18,
-            "BlackScreenMessage": "Accessing underground facility... Please wait.",
+            "BlackScreenMessage": "⚙️ Acessando instalação subterrânea... Aguarde.",
             "BlackScreenSoundFile": "",
             "EnableTeleportSound": 1,
             "TeleportSoundFile": "TeleportMod\\Data\\teleport_sound.ogg",
@@ -68,90 +53,88 @@ A simple teleport mod for DayZ that can reliably connect locations such as bunke
 }
 ```
 
-## Configuration Parameters
+---
 
-| Parameter                     | Description                                                           |
-| ----------------------------- | --------------------------------------------------------------------- |
-| `EnableTeleport`              | Enables or disables the teleport (1 = true, 0 = false)                |
-| `TeleportName`                | Name of the teleport for better organization                          |
-| `ObjectType`                  | Object type that triggers the teleport                                |
-| `ObjectCoordinates`           | Coordinates of the teleport trigger                                   |
-| `ObjectOrientation`           | Orientation (yaw, pitch, roll) of the trigger object                  |
-| `TeleportPosition`            | Destination coordinates of the teleport                               |
-| `CheckRadius`                 | Radius within which the teleport can be activated                     |
-| `RequiredItem`                | Item class name needed for activation                                 |
-| `RequiredItemDamagePercent`   | Damage applied to the item on use (0.0–100.0)                         |
-| `ConsumeRequiredItem`         | Whether the item is destroyed on use (1 = true, 0 = false)            |
-| `TeleportActiveTimeSeconds`   | Duration (in seconds) the teleport remains active                     |
-| `MissingItemMessage`          | Message displayed when required item is missing                       |
-| `TeleportCooldownTimeSeconds` | Time (in seconds) before the teleport can be used again               |
-| `CooldownMessage`             | Message displayed when teleport is on cooldown                        |
-| `PreLoadRadius`               | Radius in which the destination area is preloaded                     |
-| `TeleportDelaySeconds`        | Delay (in seconds) before teleportation starts after activation       |
-| `IsUndergroundDestination`    | Marks destination as underground to ensure safe placement             |
-| `SafeGroundOffset`            | Vertical offset to avoid spawning inside terrain or objects           |
-| `EnableBlackScreenEffect`     | Enables black screen transition during teleport (1 = true, 0 = false) |
-| `BlackScreenDurationSeconds`  | Duration (in seconds) of the black screen effect                      |
-| `BlackScreenMessage`          | Message shown during black screen                                     |
-| `BlackScreenSoundFile`        | Path to sound played during black screen effect (empty for none)      |
-| `EnableTeleportSound`         | Enable teleport sound effects (1 = true, 0 = false)                   |
-| `TeleportSoundFile`           | Path to the sound file                                                |
-| `TeleportSoundRadius`         | Range of the teleport sound                                           |
-| `TeleportSoundVolume`         | Volume of the teleport sound                                          |
+## 🧭 Parâmetros de Configuração
+
+| Parâmetro | Descrição |
+|---------------------------|----------------------------------------------------------------------|
+| `EnableTeleport` | Ativa/desativa o teleporte (`1` = ✅, `0` = ❌) |
+| `TeleportName` | Nome do teleporte para organização |
+| `ObjectType` | Tipo de objeto que ativa o teleporte |
+| `ObjectCoordinates` | 📍 Coordenadas do objeto ativador |
+| `ObjectOrientation` | 🧭 Orientação do objeto (rotação) |
+| `TeleportPosition` | 🎯 Coordenadas de destino do teleporte |
+| `CheckRadius` | 📏 Raio de ativação do teleporte |
+| `RequiredItem` | 🧰 Item necessário para ativação |
+| `RequiredItemDamagePercent` | ⚠️ Dano aplicado ao item ao ser usado |
+| `ConsumeRequiredItem` | Consome o item ao usá-lo (`1` = ✅, `0` = ❌) |
+| `TeleportActiveTimeSeconds` | ⏱️ Tempo de ativação do teleporte (segundos) |
+| `MissingItemMessage` | 💬 Mensagem sem o item necessário |
+| `TeleportCooldownTimeSeconds` | ❄️ Tempo de recarga do teleporte |
+| `CooldownMessage` | 💬 Mensagem durante recarga |
+| `PreLoadRadius` | 🔄 Raio de pré-carregamento da área de destino |
+| `TeleportDelaySeconds` | ⏳ Atraso antes do teleporte iniciar |
+| `IsUndergroundDestination` | ⬇️ Destino é subterrâneo? (`1` = ✅, `0` = ❌) |
+| `SafeGroundOffset` | 📐 Ajuste de altura para evitar spawn dentro do chão |
+| `EnableBlackScreenEffect` | 🖥️ Ativa tela preta durante o teleporte |
+| `BlackScreenDurationSeconds` | ⏱️ Duração da tela preta |
+| `BlackScreenMessage` | 💬 Mensagem exibida na tela preta |
+| `BlackScreenSoundFile` | 🔊 Som durante a tela preta |
+| `EnableTeleportSound` | 🔊 Ativa som do teleporte |
+| `TeleportSoundFile` | 🎵 Arquivo de som do teleporte |
+| `TeleportSoundRadius` | 📣 Alcance do som |
+| `TeleportSoundVolume` | 🔊 Volume do som |
 
 ---
 
-## Usage
+## 🎮 Como Usar
 
-1. Place objects in your map that will serve as teleport triggers
-2. Configure their coordinates and settings in the `config.json`
-3. Players can interact with these objects to teleport (if they have the required item)
-4. Items can be damaged or consumed based on your configuration
-
----
-
-## Credits & Repack
-
-Based on the [ActionTeleport mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3405070168) by FreddyCruger and kenik.\
-This version includes an improved configuration format and extended features.
+1. **Posicione objetos** no mapa que servirão como ativadores de teleporte.  
+2. **Configure as coordenadas e opções** no arquivo `config.json`.  
+3. **Os jogadores interagem** com o objeto para teleportar (se tiverem o item necessário).  
+4. **Itens podem ser danificados ou consumidos** conforme configurado.  
 
 ---
 
-## License & Usage
+## 👥 Créditos e Agradecimentos  
 
-**This mod is 100% free** – just like the original ActionTeleport mod:
-
-- ✅ Free to use on any server
-- ✅ Free to modify and repack
-- ✅ Free to redistribute
+Este mod é baseado no **[ActionTeleport](https://steamcommunity.com/sharedfiles/filedetails/?id=3405070168)** de **FreddyCruger** e **kenik**.  
+Inclui um formato de configuração ampliado, novos recursos e correções de bugs.  
 
 ---
 
-## Please Consider
+## 📜 Licença e Uso  
 
-- Leaving a like or comment if you find the mod useful
-- Supporting the original [ActionTeleport mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3405070168)
-- Giving proper credit if you modify or repack the mod
+**Este mod é 100% gratuito** — assim como o original:  
+
+- ✅ **Livre para uso** em qualquer servidor  
+- ✅ **Pode ser modificado e redistribuído**  
+- ✅ **Créditos são apreciados** ♥️  
 
 ---
 
-## Changelog
+## 🔄 Changelog  
 
-### Version 1.1.0
+### **Versão 1.1.0**  
+- 🖥️ **Transições de tela preta** imersivas  
+- ⏳ **Sistema de cooldown** configurável  
+- 🔄 **Pré-carregamento de áreas** de destino  
+- 🧩 **+15 parâmetros** de configuração por entrada  
+- 🧠 **Lógica cliente/servidor separada**  
+- 🟥 **Mensagens em vermelho/laranja** para melhor visibilidade  
+- 🧹 **Correção de vazamentos de memória**  
 
-- Added immersive black screen transitions during teleportation
-- Added configurable cooldown periods after teleport usage
-- Pre-loading mechanism for destination areas
-- 15+ new configuration parameters per teleport entry
-- Modular file structure with separated client/server logic
-- All messages now display in red/orange instead of blue for better visibility
-- Fixed memory leaks with proper timer cleanup
+### 🐛 Correções  
+- ✅ Jogadores não spawnam mais dentro do chão  
+- ✅ Teleportes funcionam após reinicialização do servidor  
+- ✅ Itens não são consumidos múltiplas vezes  
+- ✅ Mensagens agora aparecem corretamente no cliente  
+- ✅ Recarregamento de cooldown corrigido  
 
-### Fixed
+---
 
-- Fixed players spawning underground at surface destinations
-- Fixed teleports not working after server restart
-- Fixed item consumption happening multiple times
-- Fixed cooldown timer not resetting properly
-- Fixed messages not displaying on client
-- Fixed black screen getting stuck in rare cases
+💙 **Se gostou do mod, deixe um like ou comentário!**  
+🔗 **Apoie o mod original: [ActionTeleport](https://steamcommunity.com/sharedfiles/filedetails/?id=3405070168)**  
+
+*Feito com 💙 para a comunidade DayZ!*
